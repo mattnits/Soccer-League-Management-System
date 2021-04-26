@@ -1,7 +1,7 @@
 # Soccer League Management System
 CP476 - Internet Computing - Term Project
 
-###Authors:
+### Authors:
 * Matthew Nitsopoulos
 * David Riolo
 * Chris Karlin
