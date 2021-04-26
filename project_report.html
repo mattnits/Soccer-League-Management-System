@@ -1,0 +1,113 @@
+<h1 id="project-report">Project Report</h1>
+<p>Author: Christof Karlin 161920910, Matthew Nitsopoulos 170673880, David Riolo 170718380</p>
+<p>Date: 2021-04-10</p>
+<h2 id="p2-system-design-implementation">P2 System design &amp; implementation</h2>
+<h3 id="p2.1-client-side-component-ui">P2.1 Client side component &amp; UI</h3>
+<p>Our system uses HTML + CSS and Javascript on the front end, as well as php and mysql on the backend.</p>
+<p>A user can either sign up and managage their own league or continue as guest when they land on the home page. Depending if a user is logged in, the admin page will be visible or hidden. When a user lands on the home page and has not previously selected a league from the list, the leaderboard, schedule and stats tabs will be hidden. When a user selects a league from the table they will be redirected to that leagues leaderboard page.</p>
+<figure>
+<img src="images/screenshots/homeScreen.png" alt="(Home + Landing page)" width="600" /><figcaption>(Home + Landing page)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/homeScreen-admin.png" alt="(Home page logged in)" width="600" /><figcaption>(Home page logged in)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/leaderboardScreen.png" alt="(Leaderboard page)" width="600" /><figcaption>(Leaderboard page)</figcaption>
+</figure>
+<p>When the user selects the schedule tab from the navbar they will land on the schedule page. In this view the previously selected league's schedule will be shown in a table, sorted by date. The user can click on any of the table headers and then the table will be sorted by that column (ASC and DESC). Games not played will have a value <code>-</code> and played game will have its score show up (e.g. <code>2-3</code>)</p>
+<figure>
+<img src="images/screenshots/sheduleScreen.png" alt="(Schedule page)" width="600" /><figcaption>(Schedule page)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/sheduleScreen-sorted.png" alt="(Schedule page sorted by Home team)" width="600" /><figcaption>(Schedule page sorted by Home team)</figcaption>
+</figure>
+<p>The stats page will orginally be sorted by Team id. by clicking any of the colomn headers you are able to sort ascending and descending. This allows to gain a good understanding of the league. Below you can see the order of team when you land on the page and the order after you sort by Goals For.</p>
+<figure>
+<img src="images/screenshots/statsScreen.png" alt="(Statistics page)" width="600" /><figcaption>(Statistics page)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/statsScreen-sorted.png" alt="(Statistics page sorted by Goals for)" width="600" /><figcaption>(Statistics page sorted by Goals for)</figcaption>
+</figure>
+<p>When a user logs in or clicks the Manage Page tab they are sent to the Admin page. When at this page they can choose a league if one exists under their account or they can add one by clicking the + button. Once they select a league they have the option to add scores, schedule games and add teams to their league. Once added, the information can be edited if a mistake was made or if changes need to be made.</p>
+<figure>
+<img src="images/screenshots/adminScreen.png" alt="(Admin landing page)" width="600" /><figcaption>(Admin landing page)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/adminAddScore.png" alt="(Add score and edit score user form)" width="600" /><figcaption>(Add score and edit score user form)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/adminAddSchedule.png" alt="(Add scheduled game and edit scheduled game user form)" width="600" /><figcaption>(Add scheduled game and edit scheduled game user form)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/adminAddTeam.png" alt="(Add team and edit team userform)" width="600" /><figcaption>(Add team and edit team userform)</figcaption>
+</figure>
+<p>The user login page consists of two parts. The first part being the actual login form and the second being the admin sign up form. Upon submitting either, you are sent to the Manage page.</p>
+<figure>
+<img src="images/screenshots/loginPage.png" alt="(Admin login page)" width="600" /><figcaption>(Admin login page)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/signUpPage.png" alt="(Admin sign up page)" width="600" /><figcaption>(Admin sign up page)</figcaption>
+</figure>
+<h3 id="p2.2-server-side-cgi-components">P2.2 Server side CGI components</h3>
+<p>The Home page and schedule page make jQuery HTTP GET requests to the backend PHP file called <code>backendAPI.php</code>. This file has has 2 GET APIs: - <code>getLeagues</code> queries the <code>League</code> table and retrieves a list of all currently registered leagues - <code>getSchedule</code> queries the <code>Game</code> table and retrieves the current schedule for the sent <code>leagueID</code></p>
+<p>The Leaderboard, Statistics, Manage and Login pages all make JQuery HTTP POST requestes to the backend PHP file. This requests return HTML data which is then dynamically added to the respective HTML page. These pages query multiple tables to get all the required data to display for the user.</p>
+<h3 id="p2.3-database-tier-design-data-usage">P2.3 Database tier design, data, usage</h3>
+<figure>
+<img src="images/screenshots/DB-tables.png" alt="(PHP admin MySQL tables)" width="600" /><figcaption>(PHP admin MySQL tables)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/admin-table.png" alt="(Admin table with sample data)" width="600" /><figcaption>(Admin table with sample data)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/game-table.png" alt="(Game table with sample data)" width="600" /><figcaption>(Game table with sample data)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/league-table.png" alt="(League table with sample data)" width="600" /><figcaption>(League table with sample data)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/team-table.png" alt="(Team table with sample data)" width="600" /><figcaption>(Team table with sample data)</figcaption>
+</figure>
+<p>These databases are used when we query for data an example would be</p>
+<pre><code>SELECT * 
+FROM Game 
+WHERE leagueID = $leagueID 
+ORDER BY datePlayed ASC</code></pre>
+<pre><code>SELECT *, t.teamCount 
+FROM League as l
+LEFT JOIN
+    (SELECT _LeagueID, count(*) as teamCount
+        FROM Team
+        GROUP BY _LeagueID) 
+AS t ON t._LeagueID = l.LeagueID</code></pre>
+<pre><code>SELECT * 
+FROM team 
+WHERE _LeagueID = $leagueID 
+ORDER BY Win*2+Tie DESC&quot;</code></pre>
+<pre><code>UPDATE game 
+SET homeTeam = &#39;hname&#39;, homeTeamID = &#39;homeID&#39;, awayTeam = &#39;aname&#39;, awayTeamID = &#39;awayID&#39;, datePlayed = &#39;gdate&#39; 
+WHERE GameID = &#39;gid&#39;</code></pre>
+<pre><code>INSERT INTO team(TeamName, _LeagueID, Win, Loss, Tie) 
+VALUES (tname, leagueID, 0, 0, 0)</code></pre>
+<h3 id="p2.4-new-features-and-tools">P2.4 New features and tools</h3>
+<p>To keep track of what league was selected across different pages, we use a JavaScript property called Session Storage. This allowed us to store a key, value pair across all of our webpages and have it be easily accessible when we needed to reference it. Thus when a league was selected, we would add the league to the session storage with the key <code>leagueID</code> and then when we needed to load data on the statistics page or the schedule page, we would just call the Session Storage item and use the data that gets returned with it.</p>
+<p>We also used <code>JQuery</code> and <code>AJAX</code> to make all of our server requests. On top of that, we used some JQuery functions to dynamically alter our HTML elements. For example, when a game or team is added or edited in the admin page, we remove all the rows in each table using the <code>.remove</code> method. This allowed us to clear the existing data and update the tables with the new data that was inputted.</p>
+<h3 id="p2.5-problem-solving-algorithms">P2.5 Problem solving algorithms</h3>
+<p>The Main problems we had to solve were: - user-friendly UI - we created a user friendly, modern UI from scratch using just HTML, CSS and JavaScript - data delivery from backend to front end - we use jQuery to make GET requests to our php backend that queries the database and send us back the data in JSON format - saving data to backend - we use jQuery to make POST requests to our php backend that saves the data to our database - user login with password encryption - upon users entering their password, we encrypt the password using SHA1 and compare it to the actual password in the database - all passwords are stored using a SHA1 encryption - generating statistics from raw data - The statistics page was generated through sql querys. A simple query gave the results of Team name, Wins, Loss, and Tie. By adding another query you are able to find the value of goals for by counting all home goals where the current team is the home team and summing that with the value of all away goals when the current team is the away team. Goals against was created is a similar by counting all goal the current team didnt score. Points was taken by multiplying Wins by 3 and adding Ties. Lastly games played was generated by summing the amuont of wins losses and ties.</p>
+<figure>
+<img src="images/screenshots/teamvalues.png" alt="(Showing the limited values given)" width="600" /><figcaption>(Showing the limited values given)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/statsvalues.PNG" alt="(Showing the extendend amount of information retrieved )" width="600" /><figcaption>(Showing the extendend amount of information retrieved )</figcaption>
+</figure>
+<h3 id="p2.6-efficiency-and-robustness">P2.6 Efficiency and robustness</h3>
+<p>Since we are hosting the wep application and database locally (using XAMPP) there is virtually no loading delay. We dont allow admins to create teams, schedule games, or create past games if they have not created or selected a league yet. To create a effecient program we have coded our HTML tables in such a way that they can be sorted using javascript so that the data in the tables only need to be quereied a single time. To fetch new data efficiently we only do so on page load.</p>
+<p>Error checking is done on both client side (checking session vars are set, user input is valid, etc. ) as well as in the backend (check values sent are set and correct format).</p>
+<!-- -> pic of alert when attemping to create a game with no league -->
+<figure>
+<img src="images/screenshots/alert.png" alt="(Error message when trying to add a team without selecting a league -firefox)" width="600" /><figcaption>(Error message when trying to add a team without selecting a league -firefox)</figcaption>
+</figure>
+<figure>
+<img src="images/screenshots/adminError.png" alt="(Error message when trying to add a team without selecting a league -chrome)" width="600" /><figcaption>(Error message when trying to add a team without selecting a league -chrome)</figcaption>
+</figure>
+<h3 id="summary">Summary</h3>
+<p>We can see from the screenshots above that we had achieved everything that we set out to do in our propsal.</p>

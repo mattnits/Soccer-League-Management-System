@@ -1,0 +1,157 @@
+.navBar {
+  background-color: #333;
+  overflow: hidden;
+  opacity: 0.95;
+  border-radius: 20px;
+}
+
+.navBar a {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navBar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navBar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.navBar a.loginButton {
+    text-align: right;
+    float: right;
+}
+
+.navBar a.leftBar {
+  float: left;
+}
+
+.navBar a.rightBar {
+  float: right;
+  padding-right: 20px;
+}
+
+body {
+  background-image: url('../images/soccer2.jpg');
+  background-size: cover;
+}
+
+/* .board {
+  top: 75px;
+  left:30%;
+  position: relative;
+  border-radius: 20px;
+  width: 40%;
+  height: 700px;
+  padding-bottom: 1%;
+  background-color: #333;
+  opacity: 0.95;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+
+  resize: vertical;
+  overflow: auto;
+ 
+} */
+/* width */
+::-webkit-scrollbar {
+width: 10px;
+scroll-padding-right: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+border-radius: 100px;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+border-radius: 100px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+border-radius: 100px;
+ 
+}
+
+table {
+	border-spacing: 1;
+	border-collapse: collapse;
+	background: white;
+	border-radius: 10px;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	justify-content: center;
+	width: 900px;
+	table-layout: fixed;
+	margin-top: 50px;
+
+	/* flex-wrap: wrap; */
+	/* padding: 33px 30px; */
+}
+table * {
+	position: relative;
+}
+table td, table th {
+	padding-left: 8px;
+}
+table thead tr {
+	height: 60px;
+	background: #36304a;
+}
+table tbody tr {
+	height: 50px;
+}
+table tbody tr:last-child {
+	border: 0;
+}
+table td, table th {
+	text-align: center;
+}
+
+th {
+	font-family: OpenSans-Regular;
+	font-size: 18px;
+	color: #fff;
+	line-height: 1.2;
+	font-weight: unset;
+	
+}
+
+tbody tr:nth-child(even) {
+	background-color: #f5f5f5;
+}
+
+tbody tr {
+	font-family: OpenSans-Regular;
+	font-size: 15px;
+	color: #808080;
+	line-height: 1.2;
+	font-weight: unset;
+}
+
+tbody tr:hover {
+	color: #555555;
+	background-color: #f5f5f5;
+	/* cursor: pointer; */
+}
+
+/* th{
+  cursor: pointer;
+} */

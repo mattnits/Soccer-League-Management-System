@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>User Management System</title>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="icon" type="image/png" href="../images/ball.png"/>
+		<link rel="stylesheet" type="text/css" href="../css/schedule.css">
+
+		<script type="text/javascript" src="../js/userData.js"></script>
+		<script type = "text/javascript" src="../js/schedule.js"></script>
+		<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+		
+	</head>
+
+	<body onload="onLoadFnc(); getLoginData();">
+
+		<h1>Soccer League Tracker</h1>
+		<div class="navBar" >
+			<a href="home.html" class="leftBar">Home</a>
+            <a id="leaderboard"  href="leaderboard.html" class="leftBar">Leaderboard</a>
+            <a id="schedule" href="schedule.html" class="active leftBar">Schedule</a>
+            <a id="stats" href="stats.html" class="leftBar">Statistics</a>
+            <a id="adminManage" href="leagueManagement.html" class="leftBar">Manage Page</a>
+            <a id="logInButton" href="login.html" class="rightBar">Log In</a>
+            <a id="logOutButton" onclick="logout()" class="rightBar">Log Out</a>
+		</div>
+
+		
+		<table id="scheduletable">
+			<thead>
+				<tr>
+					<th class="column1" onclick="sortTable(0)">Date &amp; Time</th>
+					<th class="column2" onclick="sortTable(1)">Home Team</th>
+					<th class="column3" onclick="sortTable(2)">Away Team</th>
+					<th class="column4" onclick="sortTable(3)">Score</th>
+				</tr>
+			</thead>
+			<tbody>
+					
+			</tbody>
+		</table>
+
+	</body>
+</html>

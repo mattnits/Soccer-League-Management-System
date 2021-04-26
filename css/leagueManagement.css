@@ -1,0 +1,966 @@
+/* Navbar stuff */
+
+.navBar {
+    background-color: #333;
+    overflow: hidden;
+    opacity: 0.95;
+    border-radius: 20px;
+  }
+  
+  .navBar a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-size: 17px;
+    cursor: pointer;
+  }
+  
+  .navBar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .navBar a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .navBar a.loginButton {
+      text-align: right;
+      float: right;
+  }
+
+  .navBar a.leftBar {
+    float: left;
+}
+
+.navBar a.rightBar {
+    float: right;
+    padding-right: 20px;
+}
+
+body {
+    background-image: url('../images/soccer2.jpg');
+    background-size: cover;
+}
+
+/* Scores Stuff */
+
+
+.scores {
+    position: relative;
+    border-radius: 20px;
+    margin-left: 50px;
+    width: 30%;
+    height: 110%;
+    min-height: 670px;
+    background-color: #333;
+    opacity: 0.95;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    
+}
+
+.schedule {
+    position: relative;
+    border-radius: 20px;
+    width: 30%;
+    height: 110%;
+    min-height: 670px;
+    background-color: #333;
+    opacity: 0.95;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    
+}
+
+.teams {
+    position: relative;
+    border-radius: 20px;
+    margin-right: 50px;
+    width: 30%;
+    height: 110%;
+    min-height: 670px;
+    background-color: #333;
+    opacity: 0.95;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    
+}
+
+.contentItems {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.contentItems h2 {
+    text-align: center;
+    font-size: 24pt;
+    color: white;
+}
+
+#scoreButton {
+    position: absolute;
+    top: 30px;
+    padding: 10px;
+    transform: translateX(15%);
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    
+}
+#scheduleButton {
+    position: absolute;
+    top: 4%;
+    padding: 10px;
+    transform: translateX(15%);
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+#teamButton {
+    position: absolute;
+    top: 4%;
+    padding: 10px;
+    transform: translateX(15%);
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+#scoreButton:hover, #scheduleButton:hover, #teamButton:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.scores #buttonPlacement {
+    color: white;
+    border-radius: 20px;
+    border-style: none;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    left: 150px;
+}
+
+.scores #editButton {
+    color: white;
+    border-radius: 20px;
+    background-color: #333;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    position: relative;
+    left: 250px;
+    cursor: pointer;
+    top: 7px;
+}
+
+/* Drop Down Menu */
+
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+    width: 15%;
+}
+
+.dropdown .dropbtn {
+    margin-top: 25px;
+    margin-left: 50px;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 25px;
+    height: 30px;
+    width: 75%;
+    text-align: center;
+    color: white;
+    border-width: 0ch;
+    
+}
+
+.dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.dropdownContent {
+    
+    margin-left: 50px;
+    display: None;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    width: 11%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdownContent button {
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    width: 100%;
+    background-color: #333;
+    cursor: pointer;
+}
+
+.dropdownContent button:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+
+/* Scores Page */
+
+.addScores {
+    background-color: #333;
+    width: 700px;
+    height: 350px;
+    border-radius: 20px;
+    margin-left: 35%;
+    position: relative;
+    bottom: 700px;
+    display: none;
+}
+.addScores .teamScores {
+    position: relative;
+    top: 30px;
+}
+
+.addScores #homeName {
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 80px;
+    text-align: center;
+}
+
+.addScores #awayName {
+    height: 30px;
+    margin-left: 80px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.addScores #homeScore {
+    height: 50px;
+    width: 40px;
+    text-align: center;
+    font-size: 30pt;
+    padding: 10px;
+    position: relative;
+    right: 20px;
+}
+
+.addScores #awayScore {
+    height: 50px;
+    width: 40px;
+    text-align: center;
+    font-size: 30pt;
+    padding: 10px;
+    position: relative;
+    left: 20px;
+}
+
+.addScores #homeNameTag {
+    color: white;
+    position: relative;
+    top: 30px;
+    left: 35px;
+    font-size: large;
+}
+
+.addScores #awayNameTag {
+    color: white;
+    position: relative;
+    top: 30px;
+    left: 275px;
+    font-size: large;
+}
+
+.addScores #homeScoreTag {
+    color: white;
+    position: relative;
+    left: 105px;
+    font-size: large;
+}
+
+.addScores #awayScoreTag {
+    color: white;
+    position: relative;
+    right: 10px;
+    font-size: large;
+}
+
+.addScores #gameIDTag {
+    color: white;
+    position: relative;
+    top: 10px;
+    left: 40px;
+    font-size: large;
+    visibility: hidden;
+}
+
+.addScores #gameDateTag {
+    color: white;
+    position: relative;
+    top: 10px;
+    left: 130px;
+    font-size: large;
+}
+
+.addScores #gameID {
+    position: relative;
+    top: 10px;
+    left: 50px;
+    height: 20px;
+    visibility: hidden;
+}
+
+.addScores #gameDate {
+    position: relative;
+    top: 10px;
+    left: 135px;
+    height: 20px;
+}
+
+.addScores #enterScoreButton {
+    position: relative;
+    top: 50px;
+    left: 175px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+.addScores #enterScoreButton:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.addScores #cancelScoreButton {
+    position: relative;
+    top: 50px;
+    left: 225px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.addScores #cancelScoreButton:hover {
+    background-color: rgb(197, 5, 5);
+    color: black;
+}
+
+.addScores #errScoreMsg {
+    position: relative;
+    left: 250px;
+    font-size: larger;
+    top: 50px;
+    color: red;
+}
+
+/* Add Teams */
+
+.addTeams {
+    background-color: #333;
+    width: 700px;
+    height: 250px;
+    border-radius: 20px;
+    margin-left: 35%;
+    position: relative;
+    bottom: 700px;
+    display: none;
+}
+
+
+.addTeams #teamIDTag {
+    color: white;
+    position: relative;
+    top: 50px;
+    left: 188px;
+    font-size: large;
+}
+
+.addTeams #teamNameTag {
+    color: white;
+    position: relative;
+    top: 90px;
+    left: 150px;
+    font-size: large;
+}
+
+.addTeams #teamID {
+    position: relative;
+    top: 50px;
+    left: 242px;
+    height: 20px;
+}
+
+.addTeams #teamName {
+    position: relative;
+    top: 90px;
+    left: 180px;
+    height: 20px;
+}
+
+.addTeams #enterTeamButton {
+    position: relative;
+    top: 100px;
+    left: 175px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+.addTeams #enterTeamButton:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.addTeams #cancelTeamButton {
+    position: relative;
+    top: 100px;
+    left: 225px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.addTeams #cancelTeamButton:hover {
+    background-color: rgb(197, 5, 5);
+    color: black;
+}
+
+.addTeams #errTeamMsg {
+    position: relative;
+    left: 250px;
+    font-size: larger;
+    top: 100px;
+    color: red;
+}
+
+
+/* Teams Stuff */
+/*
+.teams #teamIDText {
+    color: white;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    left: 70px;
+}
+
+.teams #teamNameText {
+    color: white;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    left: 180px;
+}
+
+.teams #buttonPlacement3 {
+    color: white;
+    border-radius: 20px;
+    border-style: none;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    left: 150px;
+}
+
+.teams #newRow3 {
+    
+    position: relative;
+    top: 30px;
+    padding-bottom: 5px;
+    
+}
+
+.teams #editButton3 {
+    color: white;
+    border-radius: 20px;
+    background-color: #333;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    position: relative;
+    left: 250px;
+    cursor: pointer;
+    top: 7px;
+}
+
+/* Add league */
+
+.addLeague {
+    background-color: #333;
+    width: 700px;
+    height: 250px;
+    border-radius: 20px;
+    margin-left: 35%;
+    position: relative;
+    bottom: 700px;
+    display: none;
+}
+
+
+.addLeague #leagueNameTag {
+    color: white;
+    position: relative;
+    top: 60px;
+    left: 180px;
+    font-size: large;
+}
+
+.addLeague #leagueName {
+    position: relative;
+    top: 60px;
+    left: 200px;
+    height: 20px;
+}
+
+.addLeague #enterLeagueButton {
+    position: relative;
+    top: 100px;
+    left: 175px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+.addLeague #enterLeagueButton:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.addLeague #cancelLeagueButton {
+    position: relative;
+    top: 100px;
+    left: 225px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.addLeague #cancelLeagueButton:hover {
+    background-color: rgb(197, 5, 5);
+    color: black;
+}
+
+.addLeague #errLeagueMsg {
+    position: relative;
+    left: 250px;
+    font-size: larger;
+    top: 80px;
+    color: red;
+}
+
+/* Schedule Stuff */
+/*
+.schedule .gameHeaders {
+    position: relative;
+    left: 30px
+}
+
+.schedule #sGameIDText {
+    color: white;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    left: 10px;
+}
+
+.schedule #sDateText {
+    color: white;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    left: 40px;
+}
+.schedule #sTimeText {
+    color: white;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    left: 70px;
+}
+
+.schedule #sHomeTeamText {
+    color: white;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    left: 90px;
+}
+
+.schedule #sAwayTeamText {
+    color: white;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    left: 110px;
+}
+
+.schedule #buttonPlacement2 {
+    color: white;
+    border-radius: 20px;
+    border-style: none;
+    border-width: 2px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    left: 150px;
+}
+
+.schedule #gameIDData {
+    color: white;
+    position: relative;
+    left: 30px;
+    top: 10px;
+    padding-bottom: 5px;
+    
+}
+
+.schedule #dateData {
+    color: white;
+    position: relative;
+    left: 65px;
+    top: 10px;
+    padding-bottom: 5px;
+}
+
+.schedule #homeTeamData {
+    color: white;
+    position: relative;
+    left: 100px;
+    top: 10px;
+    padding-bottom: 5px;
+}
+
+
+.schedule #awayTeamData {
+    color: white;
+    position: relative;
+    left: 210px;
+    top: 10px;
+    padding-bottom: 5px;
+}
+
+.schedule #editButton {
+    color: white;
+    border-radius: 20px;
+    background-color: #333;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    position: relative;
+    left: 250px;
+    cursor: pointer;
+    top: 7px;
+}
+
+/* Add League */
+.addSchedule {
+    background-color: #333;
+    width: 700px;
+    height: 300px;
+    border-radius: 20px;
+    margin-left: 35%;
+    position: relative;
+    bottom: 700px;
+    display: none;
+}
+
+.addSchedule #scheduleIDTag {
+    color: white;
+    position: relative;
+    top: 30px;
+    left: 40px;
+    font-size: large;
+    visibility: hidden;
+}
+
+.addSchedule #scheduleID {
+    position: relative;
+    top: 30px;
+    left: 50px;
+    height: 20px;
+    visibility: hidden;
+}
+
+.addSchedule #scheduleDateTag {
+    color: white;
+    position: relative;
+    top: 30px;
+    left: 130px;
+    font-size: large;
+}
+
+.addSchedule #scheduleDate {
+    position: relative;
+    top: 30px;
+    left: 135px;
+    height: 20px;
+}
+
+.addSchedule #scheduleHomeTag {
+    color: white;
+    position: relative;
+    top: 100px;
+    right: 490px;
+    font-size: large;
+}
+
+.addSchedule #scheduleHome {
+    position: relative;
+    top: 70px;
+    left: 121px;
+    height: 20px;
+}
+
+.addSchedule #scheduleAwayTag {
+    color: white;
+    position: relative;
+    top: 70px;
+    left: 150px;
+    font-size: large;
+}
+
+.addSchedule #scheduleAway {
+    position: relative;
+    top: 70px;
+    left: 155px;
+    height: 20px;
+}
+
+.addSchedule #enterScheduleButton {
+    position: relative;
+    top: 140px;
+    left: 175px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+.addSchedule #enterScheduleButton:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.addSchedule #cancelScheduleButton {
+    position: relative;
+    top: 140px;
+    left: 225px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.addSchedule #cancelScheduleButton:hover {
+    background-color: rgb(197, 5, 5);
+    color: black;
+}
+
+.addSchedule #errScheduleMsg {
+    position: relative;
+    left: 250px;
+    font-size: larger;
+    top: 80px;
+    color: red;
+}
+
+
+table {
+	border-spacing: 1;
+	border-collapse: collapse;
+	background: white;
+	border-radius: 10px;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	justify-content:center;
+	width: 550px;
+	table-layout: fixed;
+	margin-top: 10px;
+
+	/* flex-wrap: wrap; */
+	/* padding: 33px 30px; */
+}
+
+
+table td, table th {
+	padding-left: 8px;
+}
+table thead tr {
+	height: 60px;
+}
+table tbody tr {
+	height: 50px;
+}
+table tbody tr:last-child {
+	border: 0;
+}
+table td, table th {
+	text-align: center;
+}
+
+th {
+	font-family: OpenSans-Regular;
+	font-size: 18px;
+	color: black;
+	line-height: 1.2;
+	font-weight: unset;
+	
+}
+
+tbody tr:nth-child(even) {
+	background-color: #f5f5f5;
+}
+
+tbody tr {
+	font-family: OpenSans-Regular;
+	font-size: 15px;
+	color: #808080;
+	line-height: 1.2;
+	font-weight: unset;
+}
+
+tbody tr:hover {
+	color: #555555;
+	background-color: #f5f5f5;
+	/* cursor: pointer; */
+}
+
+#showAllScores {
+    position: absolute;
+    top: 4%;
+    padding: 10px;
+    transform: translateX(640%);
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+#showAllSchedules {
+    position: absolute;
+    top: 4%;
+    padding: 10px;
+    transform: translateX(640%);
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+#showAllTeams {
+    position: absolute;
+    top: 4%;
+    padding: 10px;
+    transform: translateX(640%);
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+#showAllScores:hover, #showAllSchedules:hover, #showAllTeams:hover {
+    background-color: #ddd;
+    color: black;
+}

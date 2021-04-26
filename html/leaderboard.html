@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+
+    <head>
+        <title>User Management System</title>
+        <link rel="icon" type="image/png" href="../images/ball.png"/>
+        <link rel="stylesheet" type="text/css" href="../css/leaderboard.css">
+        <script type="text/javascript" src="../js/leaders.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/userData.js"></script>
+    </head>
+
+    <body onload="leaders(); getLoginData(); ">
+        <h1>Soccer League Tracker</h1>
+        <div class="navBar" >
+            <a href="home.html" class="leftBar">Home</a>
+            <a href="leaderboard.html" class="active leftBar">Leaderboard</a>
+            <a href="schedule.html" class="leftBar">Schedule</a>
+            <a href="stats.html" class="leftBar">Statistics</a>
+            <a id="adminManage"  class="leftBar" href="leagueManagement.html">Manage Page</a>
+            <a class="rightBar" id="logInButton" href="login.html">Log In</a>
+            <a class="rightBar" id="logOutButton" onclick="logout()">Log Out</a>
+        </div>
+        <div class="board" id= "board">
+            <h2 id="teams"></h2>
+            <table id="leaguetable">
+                <thead> 
+                    <tr>
+                        <th id="names">Rank</button> </th>
+                        <th id="names" >Team Name</button> </th>
+                        <th id="names">Team Record (W-L-T)</button> </th>
+                        <th id="names" >Points</button> </th>
+                    </tr>
+                </thead>
+               
+            </table>
+
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+    <head>
+        <title>User Management System</title>
+        <link rel="icon" type="image/png" href="../images/ball.png"/>
+        <link rel="stylesheet" type="text/css" href="../css/leagueManagement.css">
+        <script type="text/javascript" src="../js/userData.js"></script>
+    </head>
+    <script type="text/javascript" src="../js/userData.js"></script>
+    <script type="text/javascript" src="../js/leagueManagement.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+
+    <body onload="loadData(); getLoginData();">
+        <h1>Soccer League Tracker</h1>
+        <div class="navBar" >
+            <a href="home.html" class="leftBar">Home</a>
+            <a href="leaderboard.html" class="leftBar">Leaderboard</a>
+            <a href="schedule.html" class="leftBar">Schedule</a>
+            <a href="stats.html" class="leftBar">Statistics</a>
+            <a id="adminManage"  class="active leftBar" href="leagueManagement.html">Manage Page</a>
+            <a class="rightBar" id="logInButton" href="login.html">Log In</a>
+            <a class="rightBar" id="logOutButton" onclick="logout()">Log Out</a>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn" id="dropbtn" onclick="updateLeague(this.innerHTML)">Add a League</button>
+            <div class="dropdownContent">
+                <button onclick="updateText(this.innerHTML)">+</button>
+            </div> 
+        </div>
+
+        <div class="contentItems">
+            <div class="scores">
+                <h2 id="scoresTitle">Scores</h2>
+                <p class="gameHeaders"> 
+                    <table id="scoresTable">
+                        <thead>
+                            <tr>
+                                <th id="gameIDText">ID</th>
+                                <th id="dateText">Date</th>
+                                <th id="homeTeamText">Home Team</th>
+                                <th id="scoreText">Score</th>
+                                <th id="awayTeamText">Away Team</th>
+                                <th id="buttonPlacement1"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </p>
+                <button id="scoreButton" onclick="enterScore()">Add Score</button>
+                <!-- <button id="showAllScores" onclick="showScore()">Show All</button> -->
+            </div>
+            
+            <div class="schedule">
+                <h2 id="scheduleTitle">Schedule</h2>
+                <p class="scheduleHeaders"> 
+                    <table id="scheduleTable">
+                        <thead>
+                            <tr>
+                                <th id="sGameIDText">ID</th>
+                                <th id="sDateText">Date</th>
+                                <th id="sTimeText">Time</th>
+                                <th id="sHomeTeamText">Home Team</th>
+                                <th id="sAwayTeamText">Away Team</th>
+                                <th id="buttonPlacement2"></th>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </p>
+                <button id="scheduleButton" onclick="enterSchedule()">Add Game</button>
+                <!-- <button id="showAllSchedules" onclick="showSchedule()">Show All</button> -->
+            </div>
+            
+            <div class="teams">
+                <h2 id="TeamsTitle">Teams</h2>
+                <p class="teamHeaders"> 
+                    <table id="teamsTable">
+                        <thead>
+                            <tr>
+                                <th id="teamIDText">ID</th>
+                                <th id="teamNameText">Team Name</th>
+                                <th id="buttonPlacement3"></th>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </p>
+                <button id="teamButton" onclick="enterTeam()">Add Team</button>
+                <!-- <button id="showAllTeams" onclick="showTeams()">Show All</button> -->
+            </div>
+        </div>
+        
+        <div class="addScores">
+            <div class="gameData">
+                <p>
+                    <a id="gameIDTag">Game ID</a>
+                    <input type="text" id="gameID" required>
+                    <a id="gameDateTag">Game Date</a>
+                    <input type="datetime-local" id="gameDate" required>
+                </p>
+            </div>
+
+            <div class="teamScores">
+                <p>
+                    <a id="homeNameTag">Home Team Name</a> 
+                    <a id="homeScoreTag">Home Score</a>
+                    <a id="awayNameTag">Away Team Name</a> 
+                    <a id="awayScoreTag">Away Score</a>
+                </p>
+                
+                <input type="text" id="homeName" required>
+                <input type="text" id="homeScore" required>
+    
+                <input type="text" id="awayScore" required>
+                <input type="text" id="awayName" required>
+            </div>
+            <p id="errScoreMsg"></p>
+            <button id="enterScoreButton" onclick="submitScore()">Enter</button>
+            <button id="cancelScoreButton" onclick="cancelScore()">Cancel</button>
+            
+        </div>
+            
+        <div class="addTeams">
+            <div class="teamData">
+                <p>
+                    
+                    <a id="teamNameTag">Team Name</a>
+                    <input type="text" id="teamName" required>
+                </p>
+            </div>
+
+            <p id="errTeamMsg"></p>
+            <button id="enterTeamButton" onclick="submitTeam()">Enter</button>
+            <button id="cancelTeamButton" onclick="cancelTeam()">Cancel</button>
+        </div>
+
+        <div class="addLeague">
+            <div class="leagueData">
+                <p>
+                    <a id="leagueNameTag">League Name</a>
+                    <input type="text" id="leagueName" required>
+                </p>
+            </div>
+
+            <p id="errLeagueMsg"></p>
+            <button id="enterLeagueButton" onclick="submitLeague()">Enter</button>
+            <button id="cancelLeagueButton" onclick="cancelLeague()">Cancel</button>
+        </div>
+
+        <div class="addSchedule">
+            <div class="scheduleData">
+                <p>
+                    <a id="scheduleIDTag">Game ID</a>
+                    <input type="text" id="scheduleID" required>
+                    <a id="scheduleDateTag">Date</a>
+                    <input type="datetime-local" id="scheduleDate" required>
+                    <a id="scheduleHomeTag">Home Team</a>
+                    <input type="text" id="scheduleHome" required>
+                    <a id="scheduleAwayTag">Away Team</a>
+                    <input type="text" id="scheduleAway" required>
+                </p>
+            </div>
+
+            <p id="errScheduleMsg"></p>
+            <button id="enterScheduleButton" onclick="submitSchedule()">Enter</button>
+            <button id="cancelScheduleButton" onclick="cancelSchedule()">Cancel</button>
+        </div>
+        
+        
+    </body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+
+    <head>
+        <title>User Management System</title>
+        <link rel="icon" type="image/png" href="../images/ball.png"/>
+        <link rel="stylesheet" type="text/css" href="../css/stats.css">
+        <script type="text/javascript" src="../js/stats.js"></script>
+        <script type="text/javascript" src="../js/userData.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    </head>
+
+    <body onload="getStats(); getLoginData();">
+        <h1>Soccer League Tracker</h1>
+        <div class="navBar" >
+            <a href="home.html" class="leftBar">Home</a>
+            <a href="leaderboard.html" class="leftBar">Leaderboard</a>
+            <a href="schedule.html" class="leftBar">Schedule</a>
+            <a href="stats.html" class="active leftBar">Statistics</a>
+            <a id="adminManage"  class="leftBar" href="leagueManagement.html">Manage Page</a>
+            <a class="rightBar" id="logInButton" href="login.html">Log In</a>
+            <a class="rightBar" id="logOutButton" onclick="logout()">Log Out</a>
+        </div>
+        <div class="board" id= "board">
+            
+            <table id="leaguetable">
+                <thead>
+                    <tr>
+                        <th id="names" onclick=sortTable(0)>Team Name</th>
+                        <th id="names" onclick=sortTable(1)>Games Played</button> </th>
+                        <th id="names" onclick=sortTable(2)>Points</button> </th>
+                        <th id="names" onclick=sortTable(3)>Wins</button> </th>
+                        <th id="names" onclick=sortTable(4)>Losses</button> </th>
+                        <th id="names" onclick=sortTable(5)>Ties</button> </th>
+                        <th id="names" onclick=sortTable(6)>Goals For</button> </th>
+                        <th id="names" onclick=sortTable(7)>Goals Against</button> </th>
+                    </tr>
+                </thead>
+               
+            </table>
+        
+            
+           
+        </div>
+    </body>
+
+</html>
