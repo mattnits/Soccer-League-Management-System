@@ -1,5 +1,11 @@
-# CP476-TP
+# Soccer League Management System
 CP476 - Internet Computing - Term Project
+Authors:
+Matthew Nitsopoulos
+David Riolo
+Chris Karlin
+
+This is a website designed to provide a simple and easy to use platform to store and view soccer league data. Users can click on their league and view things such as the scheudle, results of matches and stats from the entire league. League admins, can create, update and post league stats and schedule games. 
 
 ### Recources needed
 * XAMPP
